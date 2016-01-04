@@ -2,7 +2,7 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
   <h1><%= @category.name %></h1>
-  <%= link_to 'New Post', new_category_post_path(@category), class: "waves-effect waves-light btn" %>
+  <%= link_to '+ New Post', new_category_post_path(@category), class: "waves-effect waves-light btn" %>
   <div id="masonry-container">
     <% if @category.posts %>
         <% @category.posts.each do |post| %>

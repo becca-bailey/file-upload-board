@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
   root "home#index"
-  resources :categories do
-    resources :posts
+  resources :categories, only: [:edit, :index, :new, :destroy] do
+    resources :posts, only: [:edit, :index, :new, :destroy]
   end
-  resources :users
+  resources :users, only: [:edit, :index, :new]
 
 
   get "/login" => "sessions#new", as: "login"
