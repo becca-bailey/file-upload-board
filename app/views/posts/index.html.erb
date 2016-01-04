@@ -12,6 +12,12 @@
                 <%= image_tag post.image.url(:medium) %>
               </div>
             <% end %>
+            <% if post.document.file? %>
+              <div class="card-image">
+                <%= image_tag post.document.url(:thumbnail) %>
+                <%= link_to 'Open', post.document.url %>
+              </div>
+            <% end %>
             <% if post.image_url %>
               <div class="card-image">
                 <%= image_tag post.image_url %>

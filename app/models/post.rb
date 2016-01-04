@@ -10,7 +10,7 @@ class Post < ActiveRecord::Base
     medium: '300x300>'
   }
 
-  has_attached_file :document, styles: {thumbnail: "60x60#"}
+  has_attached_file :document, styles: {thumbnail: ["200x200#", :png]}
 
   validates_attachment :document, content_type: { content_type: "application/pdf" }
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/

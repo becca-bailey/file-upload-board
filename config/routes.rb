@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
   root "home#index"
-  resources :categories, only: [:edit, :index, :new, :destroy, :create] do
-    resources :posts, only: [:edit, :index, :new, :destroy, :create]
+  resources :categories, only: [:edit, :index, :new, :destroy, :create, :update] do
+    resources :posts, only: [:edit, :index, :new, :destroy, :create, :update]
   end
   resources :users, only: [:edit, :index, :new, :create]
 

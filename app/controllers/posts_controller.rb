@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_category, only: [:show, :edit, :update, :destroy]
   before_action :authorize
 
   # GET /posts
@@ -47,7 +48,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to category_posts_path, notice: 'Post was successfully updated.' }
+        format.html { redirect_to category_posts_path(@post.category), notice: 'Post was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -66,12 +67,16 @@ class PostsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_category
+      @category = Category.find(params[:category_id])
+    end
+
     def set_post
       @post = Post.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :link_url, :body, :image)
+      params.require(:post).permit(:title, :link_url, :body, :image, :document)
     end
 end
