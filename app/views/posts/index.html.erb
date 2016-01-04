@@ -7,7 +7,7 @@
     <% if @category.posts %>
         <% @category.posts.each do |post| %>
           <div class="card box clearfix">
-            <% if post.image != nil %>
+            <% if post.image.file? %>
               <div class="card-image">
                 <%= image_tag post.image.url(:medium) %>
               </div>
