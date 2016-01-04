@@ -1,0 +1,21 @@
+<div id="login">
+  <div class="container">
+    <div class="row">
+      <%= form_for(:session, url: login_path) do |f| %>
+      <legend>Enter your email and password to log in.</legend>
+      <% if flash[:message] %>
+        <%= flash[:message] %>
+      <% end %>
+      <div class="input-field">
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+      </div>
+      <div class="input-field">
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </div>
+      <%= f.submit "Submit", class: "waves-effect waves-light btn" %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <h1><%= @category.name %></h1>
+  <%= link_to 'New Post', new_category_post_path(@category), class: "waves-effect waves-light btn" %>
+  <div id="masonry-container">
+    <% if @category.posts %>
+        <% @category.posts.each do |post| %>
+          <div class="card box clearfix">
+            <% if post.image %>
+              <div class="card-image">
+                <%= image_tag post.image.url(:medium) %>
+              </div>
+            <% end %>
+            <% if post.image_url %>
+              <div class="card-image">
+                <%= image_tag post.image_url %>
+              </div>
+            <% end %>
+            <h5><%= post.title %></h5>
+            <p><%= post.body %></p>
+            <% if post.link_url %>
+              <a href=<%= post.link_url %>>View More</a>
+            <% end %>
+            <%= link_to "Edit", edit_category_post_path(@category, post) %>
+            <%= link_to "Delete", { action: :destroy, id: post.id }, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        <% end %>
+    <% end %>
+  </div>
+</div>
