@@ -3,10 +3,11 @@
 <div class="container">
   <h1><%= @category.name %></h1>
   <%= link_to '+ New Post', new_category_post_path(@category), class: "waves-effect waves-light btn" %>
-  <div id="masonry-container">
+  <button id="toggle-packery">Toggle Packery</button>
+  <div id="container">
     <% if @category.posts %>
         <% @category.posts.each do |post| %>
-          <div class="card box clearfix">
+          <div class="card packery">
             <% if post.image.file? %>
               <div class="card-image">
                 <%= image_tag post.image.url(:medium) %>

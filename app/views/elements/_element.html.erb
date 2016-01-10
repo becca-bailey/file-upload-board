@@ -1,0 +1,14 @@
+<div class="element">
+  <h3 class="title">
+    <%= element.title %>
+  </h3>
+  <%= image_tag element.image %>
+  <p class="description">
+    <%= element.description %>
+  </p>
+  <p>
+    <% if element.link_url %>
+      <%= link_to "View More", element.link_url %>
+    <% end %>
+  </p>
+</div>

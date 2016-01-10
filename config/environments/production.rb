@@ -4,9 +4,10 @@ Rails.application.configure do
     :storage => :s3,
     :s3_credentials => {
       :bucket => ENV['beccanelson88'],
-      :access_key_id => ENV['AKIAJT4IGORF7UOK2WJA'],
-      :secret_access_key => ENV['vfftqKSZ85e63Cm+bgyToc19BesKiIvoSMibRlk']
-    }
+        aws_access_key_id: ENV["AWS_ACCESS_KEY_ID"],
+        aws_secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"]
+    },
+    fog_directory: ENV["FOG_DIRECTORY"]
   }
   # Settings specified here will take precedence over those in config/application.rb.
 

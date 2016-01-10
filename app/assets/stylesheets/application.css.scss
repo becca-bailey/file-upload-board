@@ -10,10 +10,15 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require 'masonry/transitions'
  *= require_tree .
  *= require_self
  */
+
+ * {
+    -webkit-box-sizing: border-box;
+   box-sizing: border-box !important;
+   margin: 0 auto;
+ }
 
 @import "materialize/components/color";
 
@@ -38,18 +43,6 @@ nav li a {
   padding-bottom: 1em;
 }
 
-#masonry-container {
-  box-sizing: border-box;
-  .box {
-    width: 250px;
-    min-width: 30%;
-    margin: 10px;
-    img {
-      max-width: 100%;
-    }
-  }
-}
-
 .clearfix {
   clear: both;
 }
@@ -65,3 +58,21 @@ nav li a {
   color:   white;
   display: none;
 }
+
+#container {
+  margin: 0 auto;
+}
+
+/* clearfix */
+#container:after {
+  content: ' ';
+  display: block;
+  clear: both;
+}
+
+.packery {
+  width: 210px;
+  float: left;
+}
+
+.packery.w2 { width: 430px; background: #9C0; }

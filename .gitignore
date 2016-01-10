@@ -11,3 +11,14 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore application configuration
+/config/application.yml
+
+AWS_ACCES_KEY_ID: AKIAJT4IGORF7UOK2WJA
+AWS_SECRET_ACCESS_KEY: vfftqKSZ85e63Cm+bgyToc19BesKiIvoSMibRlk
+
+development:
+  FOG_DIRECTORY: rails-demo-dev
+production:
+  FOG_DIRECTORY: rails-demo-production
